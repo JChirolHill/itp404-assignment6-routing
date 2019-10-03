@@ -6,7 +6,7 @@ export default function PreviousSearches(props) {
     <div>
       <p>Previous Searches<i className="fas fa-times" onClick={props.onShowPrevious}></i></p>
       {props.previousSearches.map((term) => {
-        return <PreviousSearch term={term} onLoadPrevious={props.onLoadPrevious} />
+        return <PreviousSearch term={term} onLoadPrevious={props.onLoadPrevious} key={Math.random()} />
       })}
     </div>
   );

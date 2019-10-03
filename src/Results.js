@@ -6,7 +6,7 @@ import { parseNum } from './HelperFunctions';
 export default class Results extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props);
     if(this.props.match) {
       if(this.props.match.params.author) {
         const { author } = this.props.match.params;
@@ -21,12 +21,14 @@ export default class Results extends React.Component {
 
   componentDidUpdate(previousProps) {
     if(this.props.match) {
-      if(this.props.match.params.author
+      console.log(this.props.match);
+      if(this.props.match.params.author && previousProps.match
         && this.props.match.params.author !== previousProps.match.params.author) {
         const { author } = this.props.match.params;
         this.props.onLoadPosts(author, true);
       }
-      else if(this.props.match.params.animal !== previousProps.match.params.animal) {
+      else if(this.props.match.params.animal && previousProps.match
+        && this.props.match.params.animal !== previousProps.match.params.animal) {
         const { animal } = this.props.match.params;
         this.props.onLoadPosts(animal, false);
       }
